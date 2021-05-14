@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class = "grey">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+    <div class = "container">
+    <a class="navbar-brand" href="/">Recommender</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link ml-5" href="recipes">About <span class="sr-only"></span></a>
+        </li>
+      </ul>
+    </div>
+</div>
+  </nav>
+
+
+
+<div class = "container" METHOD="POST">
+
+    <h1 class = "text-black mb-5 ">Here's what we found</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for idx,row in data.iterrows() %}  
+    
+        <div class = "col">
+            <div class="card text-black bg-light" style="max-width: 18rem;"/>
+                <img src = {{ row['image'] }} class = "card-img-top"/>
+                    <div class = "card-body">
+                    
+                        <p class = "text-black">Recipe Name: {{ row['names'] }}</p>
+                        <button class="button_style"><a class = "recipe2" href = "recipes2">View recipe</a></button>
+                    </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+</div>
+{% endblock %}
